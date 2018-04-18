@@ -1,0 +1,181 @@
+/**
+ * Perfectial theme for reveal.js.
+ */
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+//@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic');
+@import "../template/fonts-pf";
+
+
+$brandColor: #F14F51;
+$textColor: #434343;
+$ultraGray: #666666;
+$darkGray: #999999;
+$normalGray: #B7B7B7;
+$lightGray: #CCCCCC;
+
+// Background of the presentation
+$backgroundColor: #fff;
+
+// Primary/body text
+$mainFont: 'Roboto';
+$mainFontSize: 20px;
+$mainColor: #434343;
+
+// Vertical spacing between blocks of text
+$blockMargin: 1em;
+
+// Headings
+$headingMargin: 0 0 20px 0;
+$headingFont: 'Roboto', sans-serif;
+$headingColor: $textColor;
+$headingLineHeight: 1.5;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingTextShadow: none;
+$headingFontWeight: 500;
+$heading1TextShadow: $headingTextShadow;
+
+$heading1Size: 5em;
+$heading2Size: 2.5em;
+$heading3Size: 2em;
+$heading4Size: 1.00em;
+
+// Links and actions
+$linkColor: $brandColor;
+$linkColorHover: lighten( $linkColor, 20% );
+
+// Text selection
+$selectionBackgroundColor: $brandColor;
+$selectionColor: $brandColor;
+
+
+// Theme template ------------------------------
+@import "../template/theme-pf";
+// ---------------------------------------------
+
+
+//additional styles
+.reveal h1 {font-weight: 700; }
+
+section.has-dark-background {
+  &, h1, h2, h3, h4, h5, h6, p, span, a {
+    color: #fff;
+  }
+}
+.text-left {
+  text-align: left !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-brand {
+  color: $brandColor!important;
+}
+
+.pf-slides {
+  width: 100% !important;
+  height: 100% !important;
+}
+.pf-vertical-slides {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.pf-slide {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 80px 80px!important;
+  text-align: left!important;
+  &__logo {
+    width: 250px;
+  }
+  &--content-between {
+    display: flex!important;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+.backgrounds .pf-slide.pf-slide--logo {
+  background-image: url(../../test/examples/assets/logo_perfectial_grey.svg);
+  background-position: calc(100% - 115px) calc(100% - 70px) !important;
+  background-repeat: no-repeat!important;
+  background-size: 170px!important;
+
+  .has-dark-background & {
+    background-image: url(../../test/examples/assets/logo_perfectial_white.svg);
+  }
+}
+
+
+//lists
+.reveal ul {
+  list-style-type: none!important;
+  li {
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 15px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 9px;
+      height: 9px;
+      background-color: $brandColor;
+    }
+  }
+  &.stroked {
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      height: calc(100% - 25px);
+      width: 1px;
+      background-color: $brandColor;
+      left: 4px;
+      top: 13px;
+    }
+  }
+}
+
+
+// grid
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  &.flex-row--between {
+    justify-content: space-between;
+  }
+  &.flex-row--around {
+    justify-content: space-around;
+  }
+  &.flex-row--equal {
+    > .col {
+      flex: 1;
+    }
+  }
+  > .col {
+    padding-left: 15px;
+    padding-right: 15px;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  img {
+    display: block;
+  }
+}
